@@ -1,3 +1,7 @@
+An array named as nums and the target value is choosen ,if the target value is equal to the sum of elements in an given array .print the indices of those elements...
+
+code::
+
 int* twoSum(int* nums, int numsSize, int target, int* returnSize)
 {
     *returnSize=2;
