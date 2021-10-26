@@ -1,6 +1,48 @@
-Cows and Bulls is a pen and paper code-breaking game usually played between 2 players. In this, a player tries to guess a secret code number chosen by the second player. The rules are as follows:
+Given the secret number secret and your friend's guess guess, return the hint for your friend's guess.
 
-A player will create a secret code, usually a 4-digit number.  This number should have no repeated digits.
-Another player makes a guess (4 digit number) to crack the secret number. Upon making a guess, 2 hints will be provided- Cows and Bulls.
-Bulls indicate the number of correct digits in the correct position and cows indicates the number of correct digits in the wrong position. For example, if the secret code is 1234 and the guessed number is 1246 then we have 2 BULLS (for the exact matches of digits 1 and 2) and 1 COW (for the match of digit 4 in the wrong position)
-The player keeps on guessing until the secret code is cracked. The player who guesses in the minimum number of tries wins.
+The hint should be formatted as "xAyB", where x is the number of bulls and y is the number of cows. Note that both secret and guess may contain duplicate digits.
+
+Example 1:
+
+Input: secret = "1807", guess = "7810"
+Output: "1A3B"
+Explanation: Bulls are connected with a '|' and cows are underlined:
+"1807"
+  |
+"7810"
+
+CODE::
+
+class Solution:
+
+    def getHint(self, secret: str, guess: str) -> str:
+
+        A = 0
+        B = 0
+        secret_list = ['']*len(secret)
+        guess_list = ['']*len(guess)
+
+
+        for i in range(len(secret)):
+            secret_list[i] = secret[i]
+            guess_list[i] = guess[i]
+
+       
+        for i in range(len(secret)):
+            if secret[i] == guess[i]:
+                A += 1
+                secret_list.remove(secret[i])
+                guess_list.remove(guess[i])
+
+       
+        for i in range(len(guess_list)):
+            if guess_list[i] in secret_list:
+                B += 1
+                secret_list.remove(guess_list[i])
+
+
+        str_ans = str(A) + "A" + str(B) + "B"
+
+        return str_ans
+
+        
