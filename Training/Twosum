@@ -1,5 +1,11 @@
 An array named as nums and the target value is choosen ,if the target value is equal to the sum of elements in an given array .print the indices of those elements...
 
+example::
+
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Output: Because nums[0] + nums[1] == 9, we return [0, 1]
+
 code::
 
 int* twoSum(int* nums, int numsSize, int target, int* returnSize)
