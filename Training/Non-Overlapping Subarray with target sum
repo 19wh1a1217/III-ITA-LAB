@@ -1,0 +1,11 @@
+1477 -NON -OVERLAPPING SUBARRAY
+create array -> arr
+integer  -> target
+find the 2 subarrays  whose sum is equal to target value and they must be in a non overlapping  to each other 
+output :
+ found -> return the  minimum length of the subarray 
+not found -> return -1
+
+
+ CODE::
+ 
